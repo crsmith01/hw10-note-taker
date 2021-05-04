@@ -16,6 +16,11 @@ const notes = []
 app.use(express.urlencoded({extended: true}));
 app.use(express.json);
 
+// Revisit - Erich said this is needed
+app.use(express.static(__dirname + '/public'));
+app.listen(express.static(__dirname + '/db'));
+
+
 
 // Routes
 // basic routes for sending user to AJAX page first
