@@ -2,6 +2,7 @@
 // const path = require('path');
 
 // Load data - linking routes to data sources, which hold (arrays - possibly? - that's what db.json looks like - title and text in note array) of information on notes
+const { response } = require('express');
 const noteData = require('../db/db.json');
 
 // Routes
@@ -19,10 +20,12 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
 
         // Need to first add an object to the notes array
-        const newNote = ;
+        const newNote = 
 
         // Then need to push that object to the notes array
 
+        // Then end
+        response.end();
     });
 
 
@@ -31,6 +34,14 @@ module.exports = (app) => {
     // In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, 
     // and then rewrite the notes to the `db.json` file.
     app.delete('/api/notes/:id', (req, res) => {
+        // read all notes from the db.json file
+
+        // remove the note with the given id property
+
+        // rewrite the notes to the db.json file
+
+        // then end
+        response.end();
 
     })
 }
