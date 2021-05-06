@@ -30,24 +30,11 @@ app.use(express.static(__dirname + '/db'));
 
 
 // Routes
-// html GET requests - each sends the specified html file upon request
-// ***Should these paths be ../public etc.? instead of ./public etc?
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 
-// for homepage
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
+require('./routes/apiRoutes');
+require('./routes/htmlRoutes')
 
-// for notes page
-app.get('/notes', (req, res) => res.sendFile(path.join(__dirname, './public/notes.html')));
-
-// Redirects to homepage if user types in anything aside from the two aforementioned paths
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
-
-// Displays saved api view of notes - function will send json data of the notes upon request
-app.get('/api/notes', (req, res) => res.json(notes));
-
-// Function to actually POST the data to the database
-
-
-
+// Listener
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
