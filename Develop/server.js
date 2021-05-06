@@ -26,14 +26,19 @@ app.use(express.json);
 // Revisit - Erich said this is needed
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/db'));
-
+// Do I need something for the routes here too? like 
+// app.use(htmlRoutes);
+// app.use(apiRoutes);
 
 
 // Routes
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+// What's the reasoning behind this format change instead?
+// const htmlRoutes = require('./routes/apiRoutes');
+// const apiRoutes = require('./routes/htmlRoutes');
 
-require('./routes/apiRoutes');
-require('./routes/htmlRoutes')
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app);
 
 // Listener
 // Starts the server to begin listening
