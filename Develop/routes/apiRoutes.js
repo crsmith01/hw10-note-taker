@@ -4,6 +4,10 @@
 // Load data - linking routes to data sources, which hold (arrays - possibly? - that's what db.json looks like - title and text in note array) of information on notes
 const { response } = require('express');
 const noteData = require('../db/db.json');
+// const uuid = require('uuid');
+// OR is the uuid part like this from https://www.geeksforgeeks.org/node-js-npm-uuid/
+const { v4 : uuidv4 } = require('uuid');
+
 
 // Routes
 
@@ -15,12 +19,13 @@ module.exports = (app) => {
     // * `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, 
     // and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved 
     // (look into `npm` packages that could do this for you).
+    // ****uuid = creates unique ID
 
     // Function to actually POST the data to the database (database here is db.json)
     app.post('/api/notes', (req, res) => {
 
         // Need to first add an object to the notes array
-        const newNote = 
+        const newNote = request.body
 
         // Then need to push that object to the notes array
 
@@ -42,6 +47,5 @@ module.exports = (app) => {
 
         // then end
         response.end();
-
     })
 }
