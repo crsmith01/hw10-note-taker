@@ -63,7 +63,7 @@ The following images show the web application's appearance and functionality:
 ![Note titled “Workout” reads, “BodyStep112 and Core 41 (45-minute format) before 2pm”, with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
 
 The deployed application can be found here:
-![GitHub link](_____)
+![GitHub link](https://github.com/crsmith01/hw10-note-taker)
 ![Heroku link](_____)
 
 

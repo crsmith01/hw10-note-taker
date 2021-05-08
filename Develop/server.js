@@ -1,19 +1,16 @@
 // Dependency
 const express = require('express');
 
+
 // Set up the Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
 
 
-// pulling data from the db.json file
-// let notes = fs.readFileSync('./db/db.json');
-// notes = JSON.parse(notes)
-
-
 // Middleware to set up Express App to handle data parsing - https://expressjs.com/en/guide/using-middleware.html
 app.use(express.urlencoded({extended: true}));
 app.use(express.json);
+
 
 // Middleware to load static resources
 app.use(express.static(__dirname + '/public'));
@@ -24,6 +21,7 @@ app.use(express.static(__dirname + '/db'));
 
 require('./routes/apiRoutes.js')(app);
 require('./routes/htmlRoutes.js')(app);
+
 
 // Listener
 // Starts the server to begin listening
