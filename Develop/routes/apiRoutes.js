@@ -1,7 +1,6 @@
-// Can probs delete thsi - likely won't need path package here
-// const path = require('path');
+// Dependencies
 
-// Load data - linking routes to data sources, which hold (arrays - possibly? - that's what db.json looks like - title and text in note array) of information on notes
+// Load data - linking routes to data sources
 const express = require('express');
 const fs = require('fs');
 const noteData = require('../db/db.json');
@@ -43,14 +42,14 @@ module.exports = (app) => {
         // will need to go back and forth from JSON to array
         fs.readFile('../db/db.json', (err, data) => {
             // remember: parse() takes a json string and makes it a js object, and stringify() takes a js onject and makes it a json string
-            const notes = JSON.parse(data)
+            const postNotes = JSON.parse(data);
             
 
             // Then need to push that object to the notes array
-            notes.push(newNote);
+            postNotes.push(newNote);
 
             // change back to json and add to db.json file
-            fs.writeFile('../db/db.json'), JSON.stringify(notes) = (err, res) => {
+            fs.writeFile('../db/db.json'), JSON.stringify(postNotes) = (err, res) => {
                 // if an error occurs, throw an error
                 if (err) throw err;
                  // otherwise parse the json data
@@ -72,7 +71,7 @@ module.exports = (app) => {
         fs.readFile('../db/db.json', (err, data) => {
             if (err) throw err;
 
-            // remove the note with the given id property
+            // remove the note with the given id property. Return is implied in arrow function, right? -???
             const deletingNotes = JSON.parse(data);
             const newNotesArray = deletingNotes.filter((note) => {
                 return (note.id !== noteID);
@@ -81,9 +80,8 @@ module.exports = (app) => {
         // rewrite the notes to the db.json file
         fs.writeFile('../db/db.json', JSON.stringify(newNotesArray), (err, res) => {
             if (err) throw err;
-            console.log('The selected note has been deleted.')
         });
-
+        console.log('The selected note has been deleted.')
         // then end
         response.end();
     });
