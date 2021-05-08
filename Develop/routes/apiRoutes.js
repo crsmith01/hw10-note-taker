@@ -1,11 +1,6 @@
 // Dependencies
-
-// Load data - linking routes to data sources
-const express = require('express');
 const fs = require('fs');
-const noteData = require('../db/db.json');
-// const uuid = require('uuid');
-// OR is the uuid part like this from https://www.geeksforgeeks.org/node-js-npm-uuid/
+// uuid = Universally Unique ID - https://www.geeksforgeeks.org/node-js-npm-uuid/
 const { v4 : uuidv4 } = require('uuid');
 
 
@@ -43,7 +38,6 @@ module.exports = (app) => {
         fs.readFile('../db/db.json', (err, data) => {
             // remember: parse() takes a json string and makes it a js object, and stringify() takes a js onject and makes it a json string
             const postNotes = JSON.parse(data);
-            
 
             // Then need to push that object to the notes array
             postNotes.push(newNote);
