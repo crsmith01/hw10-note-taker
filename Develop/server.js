@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+const htmlRoutes = require('./routes/htmlRoutes');
+const apiRoutes = require('./routes/apiRoutes');
 
 // Sets up the Express App
 const app = express();
@@ -18,7 +20,7 @@ const notes = fs.readFile('./db/db.json');
 notes = JSON.parse(notes)
 
 
-
+// Middleware - https://expressjs.com/en/guide/using-middleware.html
 // Sets up Express App to handle data parsing
 app.use(express.urlencoded({extended: true}));
 app.use(express.json);
@@ -34,11 +36,9 @@ app.use(express.static(__dirname + '/db'));
 // Routes
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // What's the reasoning behind this format change instead?
-// const htmlRoutes = require('./routes/apiRoutes');
-// const apiRoutes = require('./routes/htmlRoutes');
 
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+// require('./routes/apiRoutes')(app);
+// require('./routes/htmlRoutes')(app);
 
 // Listener
 // Starts the server to begin listening

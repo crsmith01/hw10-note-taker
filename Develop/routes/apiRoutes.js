@@ -2,7 +2,7 @@
 // const path = require('path');
 
 // Load data - linking routes to data sources, which hold (arrays - possibly? - that's what db.json looks like - title and text in note array) of information on notes
-const { response, request } = require('express');
+const { response, request, json } = require('express');
 const noteData = require('../db/db.json');
 // const uuid = require('uuid');
 // OR is the uuid part like this from https://www.geeksforgeeks.org/node-js-npm-uuid/
@@ -15,13 +15,13 @@ module.exports = (app) => {
     // * `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
     // Displays saved api view of notes - function will send json data of the notes upon request
     app.get('/api/notes' = (req, res) => {
-        fs.readFile('./db/db.json', (err, data) => {
+        fs.readFile('../db/db.json', (err, data) => {
             // throw error if an error occurs
             if (err) throw err;
             // otherwise parse the json data
             else {res.json(JSON.parse(data))};
         });
-    };
+    });
 
     // * `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, 
     // and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved 
@@ -35,13 +35,13 @@ module.exports = (app) => {
         const newNote = {
             title: request.body.title,
             text: request.body.text,
-            // check that this is the right way to write it in this instance 
+            // using that unviversally unique identifyer package
             id: uuidv4(),
         };
          
         // will need to go back and forth from JSON to array
         fs.readFile('../db/db.json', (err, data) => {
-            // remember: parse() takesa json string and makes it a js object, and stringify() takes a js onject and makes it a json string
+            // remember: parse() takes a json string and makes it a js object, and stringify() takes a js onject and makes it a json string
             const notes = JSON.parse(data)
             
 
@@ -56,7 +56,7 @@ module.exports = (app) => {
                  // otherwise parse the json data
                 else {res.send(newNote)};
             };   
-        })
+        });
         // Then end
         response.end();
     });
@@ -67,13 +67,25 @@ module.exports = (app) => {
     // In order to delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, 
     // and then rewrite the notes to the `db.json` file.
     app.delete('/api/notes/:id', (req, res) => {
+        const noteID = parseINT(req.params.id);
         // read all notes from the db.json file
+        fs.readFile('../db/db.json', (err, data) => {
+            if (err) throw err;
 
-        // remove the note with the given id property
+            // remove the note with the given id property
+            const deletingNotes = JSON.parse(data);
+            const newNotesArray = deletingNotes.filter((note) => {
+                return (note.id !== noteID);
+            });
 
         // rewrite the notes to the db.json file
+        fs.writeFile('../db/db.json', JSON.stringify(newNotesArray), (err, res) => {
+            if (err) throw err;
+            console.log('The selected note has been deleted.')
+        });
 
         // then end
         response.end();
+    });
     })
-}
+};

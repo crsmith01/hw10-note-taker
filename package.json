@@ -1,0 +1,22 @@
+{
+  "name": "hw10-note-taker",
+  "version": "1.0.0",
+  "description": "Express application to add, save, and delete notes",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crsmith01/hw10-note-taker.git"
+  },
+  "author": "Catherine Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crsmith01/hw10-note-taker/issues"
+  },
+  "homepage": "https://github.com/crsmith01/hw10-note-taker#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
