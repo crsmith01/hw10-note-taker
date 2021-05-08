@@ -20,17 +20,14 @@ const notes = fs.readFile('./db/db.json');
 notes = JSON.parse(notes)
 
 
-// Middleware - https://expressjs.com/en/guide/using-middleware.html
-// Sets up Express App to handle data parsing
+// Middleware to set up Express App to handle data parsing - https://expressjs.com/en/guide/using-middleware.html
 app.use(express.urlencoded({extended: true}));
 app.use(express.json);
 
-// Revisit - Erich said this is needed
+// Middleware to load static resources
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/db'));
-// Do I need something for the routes here too? like 
-// app.use(htmlRoutes);
-// app.use(apiRoutes);
+
 
 
 // Routes
