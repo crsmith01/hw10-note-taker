@@ -4,7 +4,8 @@
   "description": "Express application to add, save, and delete notes",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
