@@ -2,7 +2,8 @@
 // const path = require('path');
 
 // Load data - linking routes to data sources, which hold (arrays - possibly? - that's what db.json looks like - title and text in note array) of information on notes
-const { response, request, json } = require('express');
+const express = require('express');
+const fs = require('fs');
 const noteData = require('../db/db.json');
 // const uuid = require('uuid');
 // OR is the uuid part like this from https://www.geeksforgeeks.org/node-js-npm-uuid/
@@ -14,7 +15,7 @@ const { v4 : uuidv4 } = require('uuid');
 module.exports = (app) => {
     // * `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
     // Displays saved api view of notes - function will send json data of the notes upon request
-    app.get('/api/notes' = (req, res) => {
+    app.get('/api/notes', (req, res) => {
         fs.readFile('../db/db.json', (err, data) => {
             // throw error if an error occurs
             if (err) throw err;
@@ -33,8 +34,8 @@ module.exports = (app) => {
 
         // Need to first add an object to the notes array - using user input
         const newNote = {
-            title: request.body.title,
-            text: request.body.text,
+            title: req.body.title,
+            text: req.body.text,
             // using that unviversally unique identifyer package
             id: uuidv4(),
         };
@@ -46,7 +47,6 @@ module.exports = (app) => {
             
 
             // Then need to push that object to the notes array
-            // push the new note to the array
             notes.push(newNote);
 
             // change back to json and add to db.json file
@@ -87,5 +87,5 @@ module.exports = (app) => {
         // then end
         response.end();
     });
-    })
+    });
 };
