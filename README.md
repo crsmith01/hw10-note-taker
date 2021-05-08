@@ -2,9 +2,9 @@
 
 ## Your Task
 
-Your assignment is to modify starter code to create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
+My assignment was to modify starter code to create an application called Note Taker that could be used to write, save, and delete notes. This application uses an Express.js back-end and save and retrieves note data from a JSON file.
 
-The application’s front end has already been created. It's your job to build the back end, connect the two, and then deploy the entire application to Heroku.
+The application’s front-end was already created, so I just needed to build the back-end, connect the two, and then deploy the entire application to Heroku.
 
 ## Table of Contents
 1. [Technologies Used](#Technologies-Used)
@@ -20,15 +20,16 @@ The application’s front end has already been created. It's your job to build t
 ```
 1. JavaScript
 2. Express.js
-3. Bootstrap
-4. HTML
-5. CSS
+3. Node.js
+4. Bootstrap
+5. HTML
+6. CSS
 ```
 
 ## User Story
 
 ```
-AS A small business owner
+AS A small business owner,
 I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
 ```
@@ -59,12 +60,15 @@ The following images show the web application's appearance and functionality:
 
 ![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/11-express-homework-demo-01.png)
 
-![Note titled “Balance accounts” reads, “Balance account books by end of day Monday,” with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
+![Note titled “Workout” reads, “BodyStep112 and Core 41 (45-minute format) before 2pm”, with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
+
+The deployed application can be found here:
+![GitHub link](_____)
+![Heroku link](_____)
 
 
 ## Tests
 Tests were written with jest. To run tests, enter the following in your command-line: npm run test
-**Note: Not all tests currently pass (hence some results being undefined). I've run out of time for tonight, but I will work on this in the next couple days.
 
 ## Contact
 If you have any questions about the repo, contact me at [crsmith01](https://github.com/crsmith01).
