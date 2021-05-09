@@ -36,7 +36,7 @@ module.exports = (app) => {
         };
          
         // will need to go back and forth from JSON to array
-        fs.readFile('../db/db.json', (err, data) => {
+        fs.readFile('db/db.json', (err, data) => {
             // remember: parse() takes a json string and makes it a js object, and stringify() takes a js onject and makes it a json string
             const postNotes = JSON.parse(data);
 
@@ -44,7 +44,7 @@ module.exports = (app) => {
             postNotes.push(newNote);
 
             // change back to json and add to db.json file
-            fs.writeFile('../db/db.json'), JSON.stringify(postNotes) = (err, res) => {
+            fs.writeFile('db/db.json'), JSON.stringify(postNotes) = (err, res) => {
                 // if an error occurs, throw an error
                 if (err) throw err;
                  // otherwise parse the json data
@@ -63,7 +63,7 @@ module.exports = (app) => {
     app.delete('/api/notes/:id', (req, res) => {
         const noteID = parseINT(req.params.id);
         // read all notes from the db.json file
-        fs.readFile('../db/db.json', (err, data) => {
+        fs.readFile('db/db.json', (err, data) => {
             if (err) throw err;
 
             // remove the note with the given id property. Return is implied in arrow function, right? -???
@@ -73,7 +73,7 @@ module.exports = (app) => {
             });
 
         // rewrite the notes to the db.json file
-        fs.writeFile('../db/db.json', JSON.stringify(newNotesArray), (err, res) => {
+        fs.writeFile('db/db.json', JSON.stringify(newNotesArray), (err, res) => {
             if (err) throw err;
         });
         console.log('The selected note has been deleted.')
