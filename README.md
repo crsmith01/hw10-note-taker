@@ -70,7 +70,7 @@ The following images show the web application's appearance and functionality:
 
 The deployed application can be found here:
 ![GitHub link](https://github.com/crsmith01/hw10-note-taker)
-![Heroku link](_____)
+![Heroku link](https://arcane-waters-64970.herokuapp.com/)
 
 
 ## Tests
