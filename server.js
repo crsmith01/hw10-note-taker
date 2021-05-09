@@ -49,7 +49,7 @@ app.get('*', function (req, res) {
 // API Routes - GET, POST, and DELETE
 // * `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
 // Displays saved api view of notes - function will send json data of the notes upon request
-app.get('/api/notes', function (req, res) {
+app.get('/api/notes', (req, res) => {
     fs.readFile(path.join(__dirname, '/db/db.json'), function (err, response) {
         const notes = JSON.parse(response);
         res.json(notes);
@@ -59,7 +59,7 @@ app.get('/api/notes', function (req, res) {
 
 // Function to actually POST the data to the database (database here is db.json)
 // * `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved 
-app.post('/api/notes', function (req, res) {
+app.post('/api/notes', (req, res) => {
     fs.readFile(path.join(__dirname, '/db/db.json'), function (err, response) {
         // remember: parse() takes a json string and makes it a js object, and stringify() takes a js onject and makes it a json string
         const postNotes = JSON.parse(response);
@@ -91,7 +91,7 @@ app.delete('/api/notes/:id', (req, res) => {
     const noteId = parseInt(req.params.id);
     
     // read all notes from the db.json file
-    fs.readFile(path.join(__dirname, '/db/db.json'), function (err, data) {
+    fs.readFile(path.join(__dirname, '/db/db.json'), (err, data) => {
         // remove the note with the given id property. 
         const deletingNotes = JSON.parse(data);
         const newNotesArray = deletingNotes.filter((item) => {
