@@ -1,8 +1,8 @@
 # 11 Express.js: Note Taker
 
-## Your Task
+## Task
 
-My assignment was to modify starter code to create an application called Note Taker that could be used to write, save, and delete notes. This application uses an Express.js back-end and save and retrieves note data from a JSON file.
+My task was to modify starter code to create an application called Note Taker that could be used to write, save, and delete notes. This application uses an Express.js back-end and save and retrieves note data from a JSON file.
 
 The application’s front-end was already created, so I just needed to build the back-end, connect the two, and then deploy the entire application to Heroku.
 
@@ -24,6 +24,7 @@ The application’s front-end was already created, so I just needed to build the
 4. Bootstrap
 5. HTML
 6. CSS
+7. Path
 ```
 
 ## User Story
@@ -31,7 +32,7 @@ The application’s front-end was already created, so I just needed to build the
 ```
 AS A small business owner,
 I WANT to be able to write and save notes
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+SO THAT I can organize my thoughts and keep track of tasks I need to complete.
 ```
 
 
@@ -57,10 +58,15 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ## Mock-Up
 
 The following images show the web application's appearance and functionality: 
+![Homepage](./Assets/1-homepage.png)
 
-![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/11-express-homework-demo-01.png)
+![Starting blank notes page](./Assets/2-initial-notes.png)
 
-![Note titled “Workout” reads, “BodyStep112 and Core 41 (45-minute format) before 2pm”, with other notes listed on the left.](./Assets/11-express-homework-demo-02.png)
+![Note titled “Workout” reads, “BodyCombat 84 and Core 41 at 2pm”, with other notes listed on the left.](./Assets/3-entering-new-seeing-saved.png)
+
+![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./Assets/4-several-saved.png)
+
+![Remaining notes on the left with first note having been deleted.](./Assets/5-deleted.png)
 
 The deployed application can be found here:
 ![GitHub link](https://github.com/crsmith01/hw10-note-taker)
