@@ -10,7 +10,8 @@ module.exports = (app) => {
     // * `GET /api/notes` should read the `db.json` file and return all saved notes as JSON.
     // Displays saved api view of notes - function will send json data of the notes upon request
     app.get('/api/notes', (req, res) => {
-        fs.readFile('../db/db.json', (err, data) => {
+        fs.readFile('db/db.json', (err, data) => {
+            console.log("HERE");
             // throw error if an error occurs
             if (err) throw err;
             // otherwise parse the json data
